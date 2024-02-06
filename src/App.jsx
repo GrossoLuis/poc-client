@@ -22,7 +22,7 @@ function App() {
 
 
 
-  const response = await axios.post('/upload', formData, {
+  const response = await axios.post('https://back-poc.onrender.com/upload', formData, {
   headers: {
     "Content-Type": "multipart/form-data"
   } 
