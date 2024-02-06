@@ -18,12 +18,11 @@ function App() {
     const formData = new FormData()
 
     formData.append('video', post.video)
-    formData.append('email', post.email)
 
 
 
 
-  const response = await axios.post('https://poc-back-production-88c1.up.railway.app/upload', formData, {
+  const response = await axios.post('/upload', formData, {
   headers: {
     "Content-Type": "multipart/form-data"
   } 
