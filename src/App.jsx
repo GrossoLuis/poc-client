@@ -23,7 +23,7 @@ function App() {
 
 
 
-    const response = await axios.post('https://poc-back-production.up.railway.app/upload', formData, {
+    const response = await axios.post('https://poc-back-production-88c1.up.railway.app', formData, {
       headers: {
             "Content-Type": "multipart/form-data"
     } 
