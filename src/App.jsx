@@ -18,6 +18,8 @@ function App() {
     const formData = new FormData()
 
     formData.append('video', post.video)
+    formData.append('email', post.email)
+
 
 
 
