@@ -63,7 +63,7 @@ function App() {
             {uploadedFiles.map((file, index) => (
               <tr key={index}>
               <td className="border border-black px-4 py-2">{file.email}</td>
-              <td className="border border-black px-4 py-2">{file.video.name}</td>
+              <td className="border border-black px-4 py-2">{file.video}</td>
               </tr>
             ))}
           </tbody>
