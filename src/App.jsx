@@ -30,7 +30,13 @@ function App() {
       } 
     });
 
-    setUploadedFiles([...uploadedFiles, post.video]); // Añadir el archivo a la lista de archivos subidos
+    const uploadedFileDetails = {
+      title: post.title,
+      email: post.email,
+      video: post.video
+    };
+
+    setUploadedFiles([...uploadedFiles, uploadedFileDetails]); // Añadir los detalles del archivo a la lista de archivos subidos
     setPost({ title: '', email: '', video: null }); // Limpiar el formulario
 
     console.log(response);
@@ -38,8 +44,8 @@ function App() {
 
   return (
     <div className="w-full h-screen flex flex-col items-center justify-center bg-white text-blac">
-      <h1 className="text-2xl mb-5">POC</h1>
-      <form className="flex flex-col bg-white border-[1.5px] border-black rounded-md w-[400px] h-2/4 gap-7 items-center" onSubmit={handleSubmit}>
+      <h1 className="text-2xl mb-10">POC</h1>
+      <form className="flex flex-col bg-white border-[1.5px] border-black rounded-md w-[400px] h-3/4 gap-7 items-center" onSubmit={handleSubmit}>
         <input className="block mt-24 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" type="text" placeholder="  title" value={post.title} onChange={e => setPost({...post, title: e.target.value})} />
         <input className="block rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-black" type="text" placeholder="  email" value={post.email} onChange={e => setPost({...post, email: e.target.value})} />
         <input type="file" name="video" id="video" onChange={e => setPost({...post, video: e.target.files[0]})} />
@@ -53,17 +59,15 @@ function App() {
         <table className="border-collapse border border-black mt-3">
           <thead>
             <tr>
-              <th className="border border-black px-4 py-2">Email</th>
-              <th className="border border-black px-4 py-2">File</th>
-
-
+              <th className="border border-black px-4 py-2">Nombre del Archivo</th>
+              <th className="border border-black px-4 py-2">Email del Remitente</th>
             </tr>
           </thead>
           <tbody>
             {uploadedFiles.map((file, index) => (
               <tr key={index}>
-              <td className="border border-black px-4 py-2">{file.email}</td>
-              <td className="border border-black px-4 py-2">{file.video}</td>
+                <td className="border border-black px-4 py-2">{file.video.name}</td>
+                <td className="border border-black px-4 py-2">{file.email}</td>
               </tr>
             ))}
           </tbody>
